@@ -1,4 +1,4 @@
-FROM mongo:4.0
+FROM mysql:5.7
 
 RUN apt-get update && \
     apt-get install --no-install-suggests -y wget && \
@@ -18,8 +18,10 @@ RUN wget "$SUPERCRONIC_URL" \
 
 # Default Environment Vars
 ENV CRON_SCHEDULE 0 0 * * *
-ENV MONGO_HOST mongodb
-ENV MONGO_PORT 27017
+ENV MYSQL_HOST mysql
+ENV MYSQL_PORT 3306
+ENV MYSQL_USER root
+ENV MYSQL_PASSWORD password
 
 # Create backup storage dir
 RUN mkdir -p /backup
