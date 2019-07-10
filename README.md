@@ -1,5 +1,7 @@
 # Docker Mysql Backup
 
+[![Build Status](https://cloud.drone.io/api/badges/katharostech/docker_mysql-backup/status.svg)](https://cloud.drone.io/katharostech/docker_mysql-backup)
+
 Extreemly simple Mysql backup container that simply dumps all Mysql databases to a file on a cron schedule.
 
 ## Usage
