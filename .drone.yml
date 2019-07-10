@@ -5,8 +5,7 @@ name: build
 steps:
   # Make sure image builds
   - name: build
-    # Use our fork of banzaicloud/drone-kaniko until #17 is merged
-    image: katharostech/drone-kaniko
+    image: banzaicloud/drone-kaniko:0.3.2
 
 trigger:
   ref:
@@ -23,7 +22,7 @@ name: release
 steps:
   # Release image to Docker Hub
   - name: release
-    image: katharostech/drone-kaniko
+    image: banzaicloud/drone-kaniko:0.3.2
     settings:
       repo: katharostech/mysql-backup
       tags: "${DRONE_TAG}, latest"
