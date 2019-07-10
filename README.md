@@ -14,26 +14,32 @@ The backup will be written to `/backup/db-backup.sql.gz`. Backups will be run on
 
 ### `CRON_SCHEDULE`
 
-*Default:* `0 0 * * *`
+**Default:** `0 0 * * *`
 
 ### `INIT_BACKUP`
 
 Set to `true` to do a backup when the container is started.
 
-*Default:* `false`
+**Default:** `false`
 
 ### `MYSQL_HOST`
 
-*Default:* mysql
+**Default:** mysql
 
 ### `MYSQL_PORT`
 
-*Default:* `3306`
+**Default:** `3306`
 
 ### `MYSQL_USER`
 
-*Default:* `root`
+**Default:** `root`
 
 ### `MYSQL_PASSWORD`
 
-*Default:* `password`
+**Default:** `password`
+
+### `FAILURE_HOOK`
+
+This allows you to insert a command will be run when a backup fails. You can use this to trigger a `curl` on a webhook to your chat software or something similar.
+
+**Default:** empty
