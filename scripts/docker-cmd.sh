@@ -1,10 +1,11 @@
 #!/bin/bash
 
 backup_cmd="mysqldump --host=$MYSQL_HOST --port=$MYSQL_PORT --user=$MYSQL_USER --password=$MYSQL_PASSWORD --all-databases \
-            | gzip > /backup/db-backup.sql.gz"
+            | gzip > /backup/db-backup.sql.gz || $FAILURE_HOOK"
 
-echo "#!/bin/bash" > /run-backup.sh
-echo "$backup_cmd" > /run-backup.sh
+echo "#!/bin/bash" >> /run-backup.sh
+echo 'set -o pipefail' >> /run-backup.sh
+echo "$backup_cmd" >> /run-backup.sh
 chmod 744 /run-backup.sh
 
 if [ "$INIT_BACKUP" = "true" ]; then
