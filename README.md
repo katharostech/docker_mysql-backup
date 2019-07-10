@@ -7,7 +7,7 @@ Extreemly simple Mysql backup container that simply dumps all Mysql databases to
 ## Usage
 
 ```
-docker run -v backup-volume:/backup kadimasolutions/mysql-backup
+docker run -v backup-volume:/backup katharostech/mysql-backup
 ```
 
 The backup will be written to `/backup/db-backup.sql.gz`. Backups will be run on the `CRON_SCHEDULE` and will replace the previously taken backup at each run.
